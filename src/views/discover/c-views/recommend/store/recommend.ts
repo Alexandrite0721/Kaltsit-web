@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
    getArtistList,
    getBanners,
+   getHotAnchor,
    getHotRecommend,
    getNewAlbum,
    getPlayListDetail
@@ -54,19 +55,29 @@ export const fetchArtistListAction = createAsyncThunk(
    }
 );
 
+export const fetchHotAnchorAction = createAsyncThunk(
+   "hotAnchor",
+   async (arg, { dispatch }) => {
+      const res = await getHotAnchor();
+      dispatch(changeHotAnchorAction(res.data));
+   }
+);
+
 interface IRecommendState {
    banners: any[];
    recommends: any[];
    newAlbums: any[];
    rankings: any[];
    settleSingers: any[];
+   hotAnchor: any;
 }
 const initialState: IRecommendState = {
    banners: [],
    recommends: [],
    newAlbums: [],
    rankings: [],
-   settleSingers: []
+   settleSingers: [],
+   hotAnchor: {}
 };
 
 const recommendSlice = createSlice({
@@ -87,6 +98,9 @@ const recommendSlice = createSlice({
       },
       changeArtistListAction(state, { payload }) {
          state.settleSingers = payload;
+      },
+      changeHotAnchorAction(state, { payload }) {
+         state.hotAnchor = payload;
       }
    }
 });
@@ -97,5 +111,6 @@ export const {
    changeHotRecommendAction,
    changeNewAlbumAction,
    changeRankingAction,
-   changeArtistListAction
+   changeArtistListAction,
+   changeHotAnchorAction
 } = recommendSlice.actions;

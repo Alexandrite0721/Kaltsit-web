@@ -38,3 +38,9 @@ export const getArtistList = (limit = 30) => {
       }
    });
 };
+
+export const getHotAnchor = () => {
+   return hyRequest.get({
+      url: "dj/toplist/hours"
+   });
+};

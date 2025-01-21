@@ -5,6 +5,7 @@ import type { ReactNode, FC } from "react";
 import {
    fetchArtistListAction,
    fetchBannerDataAction,
+   fetchHotAnchorAction,
    fetchHotRecommendAction,
    fetchNewAlbumAction,
    fetchRankingDataAction
@@ -30,6 +31,7 @@ const Recommend: FC<Iprops> = (props?) => {
       dispatch(fetchNewAlbumAction());
       dispatch(fetchRankingDataAction());
       dispatch(fetchArtistListAction());
+      dispatch(fetchHotAnchorAction());
    }, []);
 
    return (

@@ -27,7 +27,7 @@ const SettleSinger: FC<Iprops> = (props?) => {
          <div className="artists">
             {settleSingers.map((item) => {
                return (
-                  <a href="" key={item.id}>
+                  <a href="#/discover/artists" key={item.id}>
                      <div className="item">
                         <img src={getImageUrl(item.picUrl, 62)} alt="" />
                         <div className="info">
