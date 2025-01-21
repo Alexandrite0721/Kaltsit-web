@@ -1,5 +1,5 @@
 import React from "react";
-import { memo, useState } from "react";
+import { memo } from "react";
 import type { ReactNode, FC } from "react";
 import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -39,7 +39,11 @@ const AppHeader: FC<Iprops> = (props?) => {
                <a href="/#" className="logo logo1"></a>
                <div className="titleList">
                   {headerTitles.map((item) => {
-                     return <div className="item">{showItem(item)}</div>;
+                     return (
+                        <div className="item" key={item.title}>
+                           {showItem(item)}
+                        </div>
+                     );
                   })}
                </div>
             </HeaderLeft>
