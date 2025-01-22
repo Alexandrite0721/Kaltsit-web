@@ -31,7 +31,7 @@ const Recommend: FC<Iprops> = (props?) => {
       dispatch(fetchNewAlbumAction());
       dispatch(fetchRankingDataAction());
       dispatch(fetchArtistListAction());
-      dispatch(fetchHotAnchorAction());
+      //dispatch(fetchHotAnchorAction());
    }, []);
 
    return (
@@ -46,7 +46,7 @@ const Recommend: FC<Iprops> = (props?) => {
             <div className="right">
                <UserLogin />
                <SettleSinger />
-               <HotAnchor />
+               {/* <HotAnchor /> */}
             </div>
          </div>
       </RecommendWrapper>
